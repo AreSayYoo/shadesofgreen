@@ -1,6 +1,7 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const nodemailer = require('nodemailer');
+import express from 'express';
+import bodyParser from 'body-parser';
+import nodemailer from 'nodemailer';
+
 const app = express();
 const port = 3001;
 
@@ -8,10 +9,10 @@ app.use(bodyParser.json());
 
 // Configure the email transporter
 const transporter = nodemailer.createTransport({
-  service: 'gmail', // You can use other services like Yahoo, Outlook, etc.
+  service: 'gmail',
   auth: {
     user: 'matt.p.arceo@gmail.com', // Your email address
-    pass: 'jmrenwekwsatrimy ', // Your email password or app-specific password
+    pass: 'jmrenwekwsatrimy', // Your email password or app-specific password
   },
 });
 
@@ -19,8 +20,8 @@ app.post('/send-email', (req, res) => {
   const { name, email, message } = req.body;
 
   const mailOptions = {
-    from: email, // Sender's email
-    to: 'matt.p.arceo@gmail.com', // Your email to receive the message
+    from: email,
+    to: 'matt.p.arceo@gmail.com',
     subject: `New Contact Request from ${name}`,
     text: `You have a new contact request:\n\nName: ${name}\nEmail: ${email}\nMessage:\n${message}`,
   };

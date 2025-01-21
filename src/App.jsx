@@ -8,9 +8,11 @@ import img2 from './images/img2.jpg';
 import img3 from './images/img3.jpg';
 import img4 from './images/img4.jpg';
 import Logo from './images/Logonobg.png';
+import mobileImg from './images/mobileLogo.png';
+import messenger from './images/Facebook_Messenger_logo.png';
 
 function App () {
-  const handleSubmit = async (e) => {
+    const handleSubmit = async (e) => {
     e.preventDefault();
 
     const formData = {
@@ -43,16 +45,16 @@ function App () {
     <div className="app-container">
 
       <div className="floating-buttons">
-        <a href="#top" className="floating-button" aria-label="Home">
-          <span className="material-icons">home</span>
+        <a href="#top" className="floating-button">
+        <span class="material-icons">home</span>
         </a>
-        <a href="#services" className="floating-button" aria-label="Services">
+        <a href="#services" className="floating-button">
           <span className="material-icons">build</span>
         </a>
-        <a href="#about" className="floating-button" aria-label="About Us">
+        <a href="#about" className="floating-button">
           <span className="material-icons">info</span>
         </a>
-        <a href="#contact" className="floating-button" aria-label="Contact Us">
+        <a href="#contact" className="floating-button">
           <span className="material-icons">mail</span>
         </a>
       </div>
@@ -60,8 +62,8 @@ function App () {
       <main>
 
         <div className="logo-container">
-              <img src={Logo} alt="Shades of Green Logo" className="logo-image" />
-          </div>
+            <img src={Logo} alt="Shades of Green Logo" className="logo-image" />
+        </div>
         <section id="services" className="services-section">
           
           <h2>Our Services</h2>
@@ -138,6 +140,14 @@ What sets Shades of Green apart is our unwavering commitment to customer satisfa
 
             <button type="submit">Send Message</button>
           </form>
+          <br></br>
+          <br></br>
+          <div class="messenger-link">
+            <a href="https://m.me/shadesofgreenkapiti" target="_blank" rel="noopener noreferrer">
+              <img src={messenger} alt="Message us on Messenger" className="messenger-icon"/>
+            Message Us On Facebook
+            </a>
+          </div>
         </section>
       </main>
 

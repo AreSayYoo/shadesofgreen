@@ -10,6 +10,10 @@ body, html {
   scroll-padding-top: 90px;
 }
 
+a {
+  text-decoration: none;
+}
+
 .app-container {
   max-width: 100%;
   margin: 0 auto;
@@ -157,22 +161,21 @@ section h2::after {
 
 /* About Us Section Styling */
 .about-section {
-  width: 80%; /* Adjust to a percentage for fluid width */
-  max-width: 800px; /* Limit maximum width */
-  margin: 20px auto; /* Center it */
-  background-color: #f1f8e9; /* Light green */
+  width: 80%;
+  max-width: 800px;
+  margin: 20px auto;
+  background-color: #f1f8e9;
   padding: 40px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  text-align: justify; /* Align text for better readability */
-  font-size: 1rem; /* Default font size */
-  line-height: 1.6; /* Better readability */
+  text-align: justify;
+  font-size: 1rem;
+  line-height: 1.6;
   border: 2px solid #A5D6A7;
 }
 
-/* Adjust heading styles */
 .about-section h2 {
-  color: #4caf50; /* Vibrant green from the logo */
+  color: #4caf50;
   font-size: 2em;
   text-align: center;
   margin-bottom: 20px;
@@ -184,37 +187,36 @@ section h2::after {
   display: block;
   width: 80px;
   height: 3px;
-  background: #66bb6a; /* Lighter green */
+  background: #66bb6a;
   margin: 10px auto 0;
 }
 
 /* Mobile-Specific Adjustments */
 @media (max-width: 768px) {
   .about-section {
-    width: 90%; /* Use more of the screen width */
-    padding: 20px; /* Reduce padding */
-    font-size: 0.95rem; /* Slightly smaller text for smaller screens */
-    line-height: 1.5; /* Maintain readability */
+    width: 90%;
+    padding: 20px;
+    font-size: 0.95rem;
+    line-height: 1.5;
   }
 
   .about-section h2 {
-    font-size: 1.8em; /* Adjust heading size */
+    font-size: 1.8em;
   }
 }
 
 @media (max-width: 480px) {
   .about-section {
-    width: 95%; /* Almost full width on very small screens */
-    padding: 15px; /* Further reduce padding */
-    font-size: 0.9rem; /* Smaller font size */
-    line-height: 1.4; /* Keep readability consistent */
+    width: 95%;
+    padding: 15px;
+    font-size: 0.9rem;
+    line-height: 1.4;
   }
 
   .about-section h2 {
-    font-size: 1.6em; /* Adjust heading size further */
+    font-size: 1.6em;
   }
 }
-
 
 /* Contact Form */
 .contact-form {
@@ -222,9 +224,9 @@ section h2::after {
   padding: 30px;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  width: 80%; /* Adjust to a percentage for fluid width */
-  max-width: 800px; /* Limit maximum width */
-  margin: 20px auto; /* Center it */
+  width: 80%;
+  max-width: 800px;
+  margin: 20px auto;
   border: 2px solid #A5D6A7;
 }
 
@@ -243,6 +245,7 @@ section h2::after {
   border-radius: 5px;
   background: #ffffff;
   transition: border-color 0.3s ease;
+  color: #2e7d32;
 }
 
 .contact-form input:focus, .contact-form textarea:focus {
@@ -294,39 +297,19 @@ section h2::after {
 }
 
 @media (max-width: 645px) {
+  .carousel {
+    touch-action: none;
+  }
   .carousel-img {
     height: 300px;
     object-fit: contain;
   }
 }
 
-/* Animation */
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-
 /* Floating Buttons Container */
 .floating-buttons {
   position: fixed;
-  top: 10px; /* Aligns buttons to the top */
-  left: 50%; /* Centers buttons horizontally */
-  transform: translateX(-50%); /* Centers buttons exactly */
-  display: flex;
-  gap: 15px; /* Spacing between buttons */
-  z-index: 1030; /* Ensures buttons appear above content */
-  transition: all 0.3s ease;
-}
-
-/* Floating Buttons Container */
-.floating-buttons {
-  position: fixed;
-  top: 10px; /* Align buttons to the top (desktop) */
+  top: 10px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -337,48 +320,121 @@ section h2::after {
 
 @media (max-width: 768px) {
   .floating-buttons {
-    bottom: 10px; /* Align buttons to the bottom for mobile */
+    bottom: 80px;
     top: auto;
     left: 50%;
     transform: translateX(-50%);
-    flex-direction: row; /* Align buttons in a row */
+    flex-direction: row;
     gap: 10px;
   }
 }
 
 /* Floating Button Styling */
 .floating-button {
-  background: linear-gradient(145deg, #4CAF50, #388E3C); /* Gradient for a 3D effect */
+  background: linear-gradient(145deg, #4CAF50, #388E3C);
   color: white;
   text-align: center;
-  padding: 15px; /* Padding adjusted for icon size */
-  border-radius: 50%; /* Fully rounded buttons */
-  font-size: 1.5rem; /* Icon size */
+  padding: 15px;
+  border-radius: 50%;
+  font-size: 1.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 60px; /* Fixed width for circular buttons */
-  height: 60px; /* Fixed height for circular buttons */
+  width: 60px;
+  height: 60px;
   text-decoration: none;
-  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15), inset 0 2px 5px rgba(255, 255, 255, 0.3); /* Glow and shadow */
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15), inset 0 2px 5px rgba(255, 255, 255, 0.3);
   transition: all 0.3s ease;
   cursor: pointer;
 }
 
 .floating-button:hover {
-  background: linear-gradient(145deg, #66BB6A, #43A047); /* Slightly lighter gradient */
-  transform: scale(1.1); /* Enlarge slightly on hover */
+  background: linear-gradient(145deg, #66BB6A, #43A047);
+  transform: scale(1.1);
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2), inset 0 2px 5px rgba(255, 255, 255, 0.4);
 }
 
 .floating-button:active {
-  transform: scale(0.95); /* Slightly shrink for a pressed effect */
+  transform: scale(0.95);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), inset 0 3px 5px rgba(0, 0, 0, 0.2);
-  background: linear-gradient(145deg, #388E3C, #2E7D32); /* Darker gradient for a pressed look */
+  background: linear-gradient(145deg, #388E3C, #2E7D32);
 }
 
-/* Material Icon Styling */
 .floating-button .material-icons {
-  font-size: 28px; /* Size of the icons */
+  font-size: 28px;
   color: white;
+}
+
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/materialicons/v143/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2) format('woff2');
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
+
+/* Messenger Link Styling */
+.messenger-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #4CAF50;
+  border: 2px solid #4CAF50;
+  background-color: #f1f8e9;
+  padding: 10px 15px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin: 20px auto;
+  max-width: fit-content;
+}
+
+.messenger-link:hover {
+  background-color: #66BB6A;
+  color: white;
+  transform: scale(1.05);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.messenger-icon {
+  width: 28px;
+  height: 28px;
+  margin-right: 10px;
+  border-radius: 50%;
+}
+
+.contact-section {
+  display: flex; /* Ensure proper alignment */
+  flex-direction: column;
+  align-items: center; /* Center horizontally */
+  justify-content: center; /* Optional: Center vertically */
+  text-align: left;
 }
