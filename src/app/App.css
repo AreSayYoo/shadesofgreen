@@ -118,6 +118,7 @@ section {
 }
 
 section h2 {
+  padding-top: 50px;
   color: #2E7D32;
   font-size: 2em;
   text-align: center;
@@ -332,7 +333,7 @@ section h2::after {
 /* Floating Button Styling */
 .floating-button {
   background: linear-gradient(145deg, #4CAF50, #388E3C);
-  color: white;
+  color: #f1f8e9;
   text-align: center;
   padding: 15px;
   border-radius: 50%;

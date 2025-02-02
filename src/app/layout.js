@@ -73,6 +73,9 @@ export default function RootLayout({ children }) {
             <a href="#contact" className="floating-button">
               <span className="material-icons">mail</span>
             </a>
+            <a href="https://www.facebook.com/shadesofgreenkapiti/" target="_blank" rel="noopener noreferrer" className="floating-button">
+              <span className="material-icons">facebook</span>
+            </a>
           </div>
 
           <main>
