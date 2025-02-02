@@ -399,7 +399,7 @@ section h2::after {
 
 /* Messenger Link Styling */
 .messenger-link {
-  display: inline-flex;
+  display: inline-block;
   align-items: center;
   justify-content: center;
   text-decoration: none;
@@ -425,10 +425,10 @@ section h2::after {
 }
 
 .messenger-icon {
-  width: 28px;
-  height: 28px;
+  width: 32px;
+  height: 32px;
   margin-right: 10px;
-  border-radius: 50%;
+  display: inline-flex;
 }
 
 .contact-section {
