@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import React, {useState} from 'react';
 import { Carousel } from 'react-bootstrap';
+import "bootstrap/dist/css/bootstrap.css";
 import './App.css';
 import img from './images/img.jpg';
 import img1 from './images/img1.jpg';
