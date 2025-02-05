@@ -25,34 +25,38 @@ const geistMono = Geist_Mono({
 });
 
 export default function RootLayout({ children }) {
-  const handleSubmit = async (e) => {
+  const [formStatus, setFormStatus] = useState({ message: "", success: null });
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+
+  async function handleSubmit(e) {
     e.preventDefault();
+    setFormStatus({ message: "Sending message...", success: null });
+    setIsPopupOpen(true); // Show popup while sending
 
-    const formData = {
-      name: e.target.name.value,
-      email: e.target.email.value,
-      message: e.target.message.value,
-    };
-
-    try {
-      const response = await fetch('http://localhost:3001/send-email', {
-        method: 'POST',
+    const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+            "Content-Type": "application/json",
+            Accept: "application/json",
         },
-        body: JSON.stringify(formData),
-      });
-
-      if (response.ok) {
-        alert('Your message has been sent!');
-      } else {
-        alert('Failed to send your message. Please try again later.');
-      }
-    } catch (error) {
-      console.error('Error:', error);
-      alert('An error occurred. Please try again later.');
+        body: JSON.stringify({
+            access_key: "fea598f9-3f42-4f51-b60a-8be4283fc878",
+            name: e.target.name.value,
+            email: e.target.email.value,
+            message: e.target.message.value,
+        }),
+    });
+    const result = await response.json();
+    if (result.success) {
+      setFormStatus({ message: "Message sent successfully!", success: true });
+      e.target.reset();
+    } else {
+      setFormStatus({ message: "Something went wrong...Please try again. Or message us on Facebook", success: false });
     }
+
+    setIsPopupOpen(true); // Ensure popup shows message
   };
+
   return (
     <html lang="en">
       <body
@@ -84,70 +88,94 @@ export default function RootLayout({ children }) {
                 <Image src={Logo} alt="Shades of Green Logo" className="logo-image" />
             </div>
             <section id="services" className="services-section">
-              
-              <h2>Our Services</h2>
-              <ul className="services-list">
-                <li>Lawn Mowing</li>
-                <li>Fertilization</li>
-                <li>Weed Control</li>
-                <li>Garden Maintenance</li>
-                <li>Green Waste Removal</li>
-                <li>Seasonal Cleanup</li>
-              </ul>
+              <h2 className="services-title">Our Services</h2>
+              <div className="services-list">
+                {[
+                  { icon: "🌱", text: "Lawn Mowing" },
+                  { icon: "🌿", text: "Fertilization" },
+                  { icon: "🚜", text: "Weed Control" },
+                  { icon: "🌼", text: "Garden Maintenance" },
+                  { icon: "♻️", text: "Green Waste Removal" },
+                  { icon: "🍂", text: "Seasonal Cleanup" },
+                ].map((service, index) => (
+                  <div key={index} className="service-item">
+                    <span className="service-icon">{service.icon}</span>
+                    <span className="service-text">{service.text}</span>
+                  </div>
+                ))}
+              </div>
             </section>
             <Carousel id="pictures" className="carousel">
               <Carousel.Item>
                 <Image className="d-block w-100 carousel-img" src={img} alt="Lawn care 1" />
                 <Carousel.Caption>
-                  <h3>Beautifully Manicured Lawn</h3>
-                  <p>Professional care for a lush green lawn.</p>
+                  <h3></h3>
+                  <p></p>
                 </Carousel.Caption>
               </Carousel.Item>
               <Carousel.Item>
                 <Image className="d-block w-100 carousel-img" src={img1} alt="Lawn care 2" />
                 <Carousel.Caption>
-                  <h3>Healthy Growth</h3>
-                  <p>Ensure your garden thrives year-round.</p>
+                  <h3></h3>
+                  <p></p>
                 </Carousel.Caption>
               </Carousel.Item>
               <Carousel.Item>
                 <Image className="d-block w-100 carousel-img" src={img2} alt="Lawn care 3" />
                 <Carousel.Caption>
-                  <h3>Seasonal Maintenance</h3>
-                  <p>Keep your outdoor spaces fresh and clean.</p>
+                  <h3></h3>
+                  <p></p>
                 </Carousel.Caption>
               </Carousel.Item>
               <Carousel.Item>
                 <Image className="d-block w-100 carousel-img" src={img3} alt="Lawn care 4" />
                 <Carousel.Caption>
-                  <h3>Garden Perfection</h3>
-                  <p>Beautiful flowerbeds and greenery.</p>
+                  <h3></h3>
+                  <p></p>
                 </Carousel.Caption>
               </Carousel.Item>
               <Carousel.Item>
                 <Image className="d-block w-100 carousel-img" src={img4} alt="Lawn care 5" />
                 <Carousel.Caption>
-                  <h3>Weed Control</h3>
-                  <p>Efficient and eco-friendly solutions.</p>
+                  <h3></h3>
+                  <p></p>
                 </Carousel.Caption>
               </Carousel.Item>
             </Carousel>
             <br></br>
-            <br></br>
 
-            <section id="about" className="about-section">
-              <br></br>
+            <section id="about" className="about">
               <h2>About Shades of Green</h2>
-              <p>At Shades of Green, we are dedicated to transforming your outdoor spaces into vibrant, lush sanctuaries that not only enhance your home’s aesthetic appeal but also foster a connection with nature. Founded on a passion for horticulture and a commitment to environmental stewardship, our team of skilled professionals brings a wealth of expertise and a keen eye for detail to every project. We understand that your lawn is more than just grass; it’s a canvas where families create lasting memories, a serene retreat for relaxation, and an inviting space for gatherings. With our top-notch services, including precision mowing, meticulous edging, and tailored fertilization programs, we ensure that your lawn remains verdant and healthy all year round.
-                <br></br>
-                <br></br>
-              What sets Shades of Green apart is our unwavering commitment to customer satisfaction and sustainable practices. We utilize eco-friendly products and techniques that protect not only your lawn but also the surrounding ecosystem. Our knowledgeable staff is always ready to share insights and personalized tips, empowering you to take part in the beautification of your landscape. Whether you’re looking for a comprehensive lawn makeover or regular maintenance to keep your yard in pristine condition, we approach every job with passion and professionalism. Join us in cultivating beauty and sustainability in your outdoor spaces, where every blade of grass tells a story of care and dedication.</p>
+              <div className="about-section">
+                <p>
+                  G'day, I'm Lane! After calling the beautiful Kāpiti Coast home for over 20 years, I decided to turn my passion for well-kept lawns and gardens into a business—so I started <strong>Shades of Green – Lawns & Gardens</strong>.
+                </p>
+                
+                <p>
+                  Fast forward three years, and I’m still out there, rain or shine, keeping Kāpiti’s backyards looking their best. I’m truly grateful for all my fantastic clients who’ve backed me along the way—it’s been a pleasure helping you keep your greenspaces tidy and thriving.
+                </p>
+                
+                <p>
+                  If your lawn’s getting a bit wild or the garden needs a bit of TLC, give me a bell on <a href="tel:0221725508">022 172 5508</a> or flick me an email at <a href="mailto:lane@shadesofgreen.nz">lane@shadesofgreen.nz</a>. Whether it’s a regular mow, a bit of garden maintenance, or a one-off tidy-up, I’ve got you covered.
+                </p>
+                
+                <p>
+                  So, why spend your weekends battling the backyard when you could be out enjoying it? Let me take care of the hard yakka while you sit back and relax.
+                </p>
+
+                <p><em>More to come—cheers!</em></p>
+
+                <p><strong>Lane</strong></p>
+              </div>
             </section>
-            <br></br>
-            <br></br>
+           
             <section id="contact" className="contact-section">
               <h2>Contact Us</h2>
               <form className="contact-form" onSubmit={handleSubmit}>
+                <input type="hidden" name="access_key" value="fea598f9-3f42-4f51-b60a-8be4283fc878"/>
+                <input type="hidden" name="subject" value="New Submission from Shades of Green Website"/>
+                <input type="hidden" name="from_name" value="Shades of Green Kapiti"/>
+                <input type="hidden" name="ccemail" value="matt.p.arceo@gmail.com"/>
                 <label htmlFor="name">Name:</label>
                 <input type="text" id="name" name="name" required />
 
@@ -159,8 +187,18 @@ export default function RootLayout({ children }) {
 
                 <button type="submit">Send Message</button>
               </form>
-              <br></br>
-              <br></br>
+              {/* Success/Error Message Display */}
+              {isPopupOpen && (
+                <div className="popup-overlay" onClick={() => setIsPopupOpen(false)}>
+                  <div className="popup-content" onClick={(e) => e.stopPropagation()}>
+                    <button className="close-popup" onClick={() => setIsPopupOpen(false)}>✖</button>
+                    <p className={formStatus.success ? "success-message" : "error-message"}>
+                      {formStatus.message}
+                    </p>
+                  </div>
+                </div>
+              )}
+             
               <div class="messenger-link">
                 <a href="https://m.me/shadesofgreenkapiti" target="_blank" rel="noopener noreferrer">
                   <Image src={messenger} alt="Message us on Messenger" className="messenger-icon"/>
