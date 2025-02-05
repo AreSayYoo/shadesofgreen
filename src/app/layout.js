@@ -107,7 +107,7 @@ export default function RootLayout({ children }) {
             </section>
             <Carousel id="pictures" className="carousel">
               <Carousel.Item>
-                <Image className="d-block w-100 carousel-img" src={img} alt="Lawn care 1" />
+                <Image className="d-block w-100 carousel-img" src={img3} alt="Lawn care 1" />
                 <Carousel.Caption>
                   <h3></h3>
                   <p></p>
@@ -128,7 +128,7 @@ export default function RootLayout({ children }) {
                 </Carousel.Caption>
               </Carousel.Item>
               <Carousel.Item>
-                <Image className="d-block w-100 carousel-img" src={img3} alt="Lawn care 4" />
+                <Image className="d-block w-100 carousel-img" src={img} alt="Lawn care 4" />
                 <Carousel.Caption>
                   <h3></h3>
                   <p></p>
