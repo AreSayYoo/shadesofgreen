@@ -148,7 +148,7 @@ export default function RootLayout({ children }) {
               <h2>About Shades of Green</h2>
               <div className="about-section">
                 <p>
-                  G'day, I'm Lane! After calling the beautiful Kāpiti Coast home for over 20 years, I decided to turn my passion for well-kept lawns and gardens into a business—so I started <strong>Shades of Green – Lawns & Gardens</strong>.
+                  After calling the beautiful Kāpiti Coast home for over 20 years, I decided to turn my passion for well-kept lawns and gardens into a business—so I started <strong>Shades of Green – Lawns & Gardens</strong>.
                 </p>
                 
                 <p>
@@ -156,7 +156,7 @@ export default function RootLayout({ children }) {
                 </p>
                 
                 <p>
-                  If your lawn’s getting a bit wild or the garden needs a bit of TLC, give me a bell on <a href="tel:0221725508">022 172 5508</a> or flick me an email at <a href="mailto:lane@shadesofgreen.nz">lane@shadesofgreen.nz</a>. Whether it’s a regular mow, a bit of garden maintenance, or a one-off tidy-up, I’ve got you covered.
+                  If your lawn’s getting a bit wild or the garden needs a bit of TLC, give me a call at <a href="tel:0221725508">022 172 5508</a> or flick me an email at <a href="mailto:lane@shadesofgreen.nz">lane@shadesofgreen.nz</a>. Whether it’s a regular mow, a bit of garden maintenance, or a one-off tidy-up, I’ve got you covered.
                 </p>
                 
                 <p>
