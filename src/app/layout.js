@@ -1,17 +1,17 @@
-"use client"
+"use client";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import React, {useState} from 'react';
-import { Carousel } from 'react-bootstrap';
+import React, { useState, useRef } from "react";
+import { Carousel } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.css";
-import './App.css';
-import img from './images/img.jpg';
-import img1 from './images/img1.jpg';
-import img2 from './images/img2.jpg';
-import img3 from './images/img3.jpg';
-import img4 from './images/img4.jpg';
-import Logo from './images/Logonobg.png';
-import messenger from './images/Facebook_Messenger_logo.png';
+import "./App.css";
+import img from "./images/img.jpg";
+import img1 from "./images/img1.jpg";
+import img2 from "./images/img2.jpg";
+import img3 from "./images/img3.jpg";
+import img4 from "./images/img4.jpg";
+import Logo from "./images/Logonobg.png";
+import messenger from "./images/Facebook_Messenger_logo.png";
 import Image from "next/image";
 
 const geistSans = Geist({
@@ -34,39 +34,68 @@ export default function RootLayout({ children }) {
     setIsPopupOpen(true); // Show popup while sending
 
     const response = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
-        },
-        body: JSON.stringify({
-            access_key: "fea598f9-3f42-4f51-b60a-8be4283fc878",
-            name: e.target.name.value,
-            email: e.target.email.value,
-            message: e.target.message.value,
-        }),
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify({
+        access_key: "fea598f9-3f42-4f51-b60a-8be4283fc878",
+        name: e.target.name.value,
+        email: e.target.email.value,
+        message: e.target.message.value,
+      }),
     });
     const result = await response.json();
     if (result.success) {
       setFormStatus({ message: "Message sent successfully!", success: true });
       e.target.reset();
     } else {
-      setFormStatus({ message: "Something went wrong...Please try again. Or message us on Facebook", success: false });
+      setFormStatus({
+        message:
+          "Something went wrong...Please try again. Or message us on Facebook",
+        success: false,
+      });
     }
 
     setIsPopupOpen(true); // Ensure popup shows message
-  };
+  }
 
   return (
     <html lang="en">
+      <head>
+        <meta charSet="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+
+        <title>Shades of Green – Lawns & Gardens | Kāpiti Coast</title>
+        <meta
+          name="description"
+          content="Shades of Green offers expert lawn mowing, garden maintenance, and green waste removal across the Kāpiti Coast. Get in touch with Lane today!"
+        />
+        <meta
+          name="keywords"
+          content="Kapiti lawn care, Shades of Green, garden maintenance, lawn mowing, green waste, Kapiti landscaping, New Zealand gardening, lawn services, garden services, lawn care"
+        />
+        <meta name="author" content="Shades of Green – Lawns & Gardens" />
+
+        {/* Open Graph / Facebook */}
+        <meta property="og:title" content="Shades of Green – Lawns & Gardens" />
+        <meta
+          property="og:description"
+          content="Keep your Kāpiti Coast garden in top shape with Shades of Green. Reliable and professional lawn and garden services."
+        />
+        <meta property="og:image" content="/images/img3.jpg" />
+        <meta property="og:url" content="https://shadesofgreen.nz" />
+        <meta property="og:type" content="website" />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <div className="app-container">
-
           <div className="floating-buttons">
             <a href="#top" className="floating-button">
-            <span class="material-icons">home</span>
+              <span class="material-icons">home</span>
             </a>
             <a href="#services" className="floating-button">
               <span className="material-icons">build</span>
@@ -77,18 +106,26 @@ export default function RootLayout({ children }) {
             <a href="#contact" className="floating-button">
               <span className="material-icons">mail</span>
             </a>
-            <a href="https://www.facebook.com/shadesofgreenkapiti/" target="_blank" rel="noopener noreferrer" className="floating-button">
+            <a
+              href="https://www.facebook.com/shadesofgreenkapiti/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="floating-button"
+            >
               <span className="material-icons">facebook</span>
             </a>
           </div>
 
           <main>
-
             <div className="logo-container">
-                <Image src={Logo} alt="Shades of Green Logo" className="logo-image" />
+              <Image
+                src={Logo}
+                alt="Shades of Green Logo"
+                className="logo-image"
+              />
             </div>
             <section id="services" className="services-section">
-              <h2 className="services-title">Our Services</h2>
+              <h1 className="services-title">Our Services</h1>
               <div className="services-list">
                 {[
                   { icon: "🌱", text: "Lawn Mowing" },
@@ -107,35 +144,55 @@ export default function RootLayout({ children }) {
             </section>
             <Carousel id="pictures" className="carousel">
               <Carousel.Item>
-                <Image className="d-block w-100 carousel-img" src={img3} alt="Lawn care 1" />
+                <Image
+                  className="d-block w-100 carousel-img"
+                  src={img3}
+                  alt="Lawn care 1"
+                />
                 <Carousel.Caption>
                   <h3></h3>
                   <p></p>
                 </Carousel.Caption>
               </Carousel.Item>
               <Carousel.Item>
-                <Image className="d-block w-100 carousel-img" src={img1} alt="Lawn care 2" />
+                <Image
+                  className="d-block w-100 carousel-img"
+                  src={img1}
+                  alt="Lawn care 2"
+                />
                 <Carousel.Caption>
                   <h3></h3>
                   <p></p>
                 </Carousel.Caption>
               </Carousel.Item>
               <Carousel.Item>
-                <Image className="d-block w-100 carousel-img" src={img2} alt="Lawn care 3" />
+                <Image
+                  className="d-block w-100 carousel-img"
+                  src={img2}
+                  alt="Lawn care 3"
+                />
                 <Carousel.Caption>
                   <h3></h3>
                   <p></p>
                 </Carousel.Caption>
               </Carousel.Item>
               <Carousel.Item>
-                <Image className="d-block w-100 carousel-img" src={img} alt="Lawn care 4" />
+                <Image
+                  className="d-block w-100 carousel-img"
+                  src={img}
+                  alt="Lawn care 4"
+                />
                 <Carousel.Caption>
                   <h3></h3>
                   <p></p>
                 </Carousel.Caption>
               </Carousel.Item>
               <Carousel.Item>
-                <Image className="d-block w-100 carousel-img" src={img4} alt="Lawn care 5" />
+                <Image
+                  className="d-block w-100 carousel-img"
+                  src={img4}
+                  alt="Lawn care 5"
+                />
                 <Carousel.Caption>
                   <h3></h3>
                   <p></p>
@@ -145,37 +202,74 @@ export default function RootLayout({ children }) {
             <br></br>
 
             <section id="about" className="about">
-              <h2>About Shades of Green</h2>
+              <h1>About Shades of Green</h1>
               <div className="about-section">
                 <p>
-                  After calling the beautiful Kāpiti Coast home for over 20 years, I decided to turn my passion for well-kept lawns and gardens into a business—so I started <strong>Shades of Green – Lawns & Gardens</strong>.
-                </p>
-                
-                <p>
-                  Fast forward three years, and I’m still out there, rain or shine, keeping Kāpiti’s backyards looking their best. I’m truly grateful for all my fantastic clients who’ve backed me along the way—it’s been a pleasure helping you keep your greenspaces tidy and thriving.
-                </p>
-                
-                <p>
-                  If your lawn’s getting a bit wild or the garden needs a bit of TLC, give me a call at <a href="tel:0221725508">022 172 5508</a> or flick me an email at <a href="mailto:lane@shadesofgreen.nz">lane@shadesofgreen.nz</a>. Whether it’s a regular mow, a bit of garden maintenance, or a one-off tidy-up, I’ve got you covered.
-                </p>
-                
-                <p>
-                  So, why spend your weekends battling the backyard when you could be out enjoying it? Let me take care of the hard yakka while you sit back and relax.
+                  After calling the beautiful Kāpiti Coast home for over 20
+                  years, I decided to turn my passion for well-kept lawns and
+                  gardens into a business—so I started{" "}
+                  <strong>Shades of Green – Lawns & Gardens</strong>.
                 </p>
 
-                <p><em>More to come—cheers!</em></p>
+                <p>
+                  Fast forward three years, and I’m still out there, rain or
+                  shine, keeping Kāpiti’s backyards looking their best. I’m
+                  truly grateful for all my fantastic clients who’ve backed me
+                  along the way—it’s been a pleasure helping you keep your
+                  greenspaces tidy and thriving.
+                </p>
 
-                <p><strong>Lane</strong></p>
+                <p>
+                  If your lawn’s getting a bit wild or the garden needs a bit of
+                  TLC, give me a call at{" "}
+                  <a href="tel:0221725508">022 172 5508</a> or flick me an email
+                  at{" "}
+                  <a href="mailto:lane@shadesofgreen.nz">
+                    lane@shadesofgreen.nz
+                  </a>
+                  . Whether it’s a regular mow, a bit of garden maintenance, or
+                  a one-off tidy-up, I’ve got you covered.
+                </p>
+
+                <p>
+                  So, why spend your weekends battling the backyard when you
+                  could be out enjoying it? Let me take care of the hard yakka
+                  while you sit back and relax.
+                </p>
+
+                <p>
+                  <em>More to come—cheers!</em>
+                </p>
+
+                <p>
+                  <strong>Lane</strong>
+                </p>
               </div>
             </section>
-           
+
             <section id="contact" className="contact-section">
-              <h2>Contact Us</h2>
+              <h1>Contact Us</h1>
               <form className="contact-form" onSubmit={handleSubmit}>
-                <input type="hidden" name="access_key" value="fea598f9-3f42-4f51-b60a-8be4283fc878"/>
-                <input type="hidden" name="subject" value="New Submission from Shades of Green Website"/>
-                <input type="hidden" name="from_name" value="Shades of Green Kapiti"/>
-                <input type="hidden" name="ccemail" value="matt.p.arceo@gmail.com"/>
+                <input
+                  type="hidden"
+                  name="access_key"
+                  value="fea598f9-3f42-4f51-b60a-8be4283fc878"
+                />
+                <input
+                  type="hidden"
+                  name="subject"
+                  value="New Submission from Shades of Green Website"
+                />
+                <input
+                  type="hidden"
+                  name="from_name"
+                  value="Shades of Green Kapiti"
+                />
+                <input
+                  type="hidden"
+                  name="ccemail"
+                  value="matt.p.arceo@gmail.com"
+                />
                 <label htmlFor="name">Name:</label>
                 <input type="text" id="name" name="name" required />
 
@@ -183,33 +277,64 @@ export default function RootLayout({ children }) {
                 <input type="email" id="email" name="email" required />
 
                 <label htmlFor="message">Message:</label>
-                <textarea id="message" name="message" rows="4" required></textarea>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="4"
+                  required
+                ></textarea>
 
                 <button type="submit">Send Message</button>
               </form>
               {/* Success/Error Message Display */}
               {isPopupOpen && (
-                <div className="popup-overlay" onClick={() => setIsPopupOpen(false)}>
-                  <div className="popup-content" onClick={(e) => e.stopPropagation()}>
-                    <button className="close-popup" onClick={() => setIsPopupOpen(false)}>✖</button>
-                    <p className={formStatus.success ? "success-message" : "error-message"}>
+                <div
+                  className="popup-overlay"
+                  onClick={() => setIsPopupOpen(false)}
+                >
+                  <div
+                    className="popup-content"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    <button
+                      className="close-popup"
+                      onClick={() => setIsPopupOpen(false)}
+                    >
+                      ✖
+                    </button>
+                    <p
+                      className={
+                        formStatus.success ? "success-message" : "error-message"
+                      }
+                    >
                       {formStatus.message}
                     </p>
                   </div>
                 </div>
               )}
-             
+
               <div class="messenger-link">
-                <a href="https://m.me/shadesofgreenkapiti" target="_blank" rel="noopener noreferrer">
-                  <Image src={messenger} alt="Message us on Messenger" className="messenger-icon"/>
-                Message Us On Facebook
+                <a
+                  href="https://m.me/shadesofgreenkapiti"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Image
+                    src={messenger}
+                    alt="Message us on Messenger"
+                    className="messenger-icon"
+                  />
+                  Message Us On Facebook
                 </a>
               </div>
             </section>
           </main>
 
           <footer className="footer">
-            <p>&copy; {new Date().getFullYear()} Shades of Green. All rights reserved.</p>
+            <p>
+              &copy; {new Date().getFullYear()} Shades of Green. All rights
+              reserved.
+            </p>
           </footer>
         </div>
       </body>
