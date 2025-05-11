@@ -70,7 +70,7 @@ export default function RootLayout({ children }) {
         {/* ✅ Google Site Verification */}
         <meta
           name="google-site-verification"
-          content="googleaa672fc00a47da3b"
+          content="xgyp8Pui_eg6big_xu-21aE2NxE-BDQbBEMWzAh7LDg"
         />
 
         <title>Shades of Green – Lawns & Gardens | Kāpiti Coast</title>
