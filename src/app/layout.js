@@ -20,6 +20,7 @@ export default function RootLayout({ children }) {
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="robots" content="index, follow" />
         <meta
           name="google-site-verification"
           content="xgyp8Pui_eg6big_xu-21aE2NxE-BDQbBEMWzAh7LDg"
@@ -42,6 +43,7 @@ export default function RootLayout({ children }) {
         <meta property="og:image" content="/images/img3.jpg" />
         <meta property="og:url" content="https://shadesofgreen.nz" />
         <meta property="og:type" content="website" />
+        <link rel="canonical" href="https://shadesofgreen.nz" />
         <link
           rel="stylesheet"
           href="https://fonts.googleapis.com/icon?family=Material+Icons"
