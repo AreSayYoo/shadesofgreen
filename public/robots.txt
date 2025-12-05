@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: shadesofgreen.nz
+Host: https://shadesofgreen.nz
 
 # Sitemaps
 Sitemap: https://shadesofgreen.nz/sitemap.xml
